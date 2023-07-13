@@ -62,7 +62,7 @@ public class ResourceCentreTest {
 		Camcorder cc_missing = new Camcorder("CC0014", "", 60);
 		ResourceCentre.addCamcorder(camcorderList, cc_missing);
 		assertEquals("Test that the Camcorder arraylist size is unchange.", 2, camcorderList.size());
-	}
+	} // test
 
 	@Test
 	public void testAddChromebook() {
