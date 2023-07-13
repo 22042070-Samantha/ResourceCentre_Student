@@ -67,6 +67,7 @@ public class ResourceCentreTest {
 	@Test
 	public void testAddChromebook() {
 		//fail("Not yet implemented");
+<<<<<<< HEAD
 		// write your code here 
 		
 		// Item list is not null and it is empty
@@ -88,6 +89,27 @@ public class ResourceCentreTest {
 		assertEquals("Test that the Chromebook arraylist size is unchange.", 2, chromebookList.size());
 
 		// Add an item that has missing detail
+=======
+		// Item list is not null and it is empty
+		assertNotNull("Test if there is valid Chromebook arraylist to add to",chromebookList);
+		assertEquals("Test that the Chromebook arraylist is empty.",0, chromebookList.size());
+		
+		//Given an empty list, after adding 1 item, the size of the list is 1
+		ResourceCentre.addChromebook(chromebookList, cb1);
+		assertEquals("Test that the Chromebook arraylist size is 1.", 1, chromebookList.size());
+		
+		//Add an item Assert Tag: CB0012
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		assertEquals("Test that the Chromebook arraylist size is now 2.", 2, chromebookList.size());
+		//The item just added is as same as the last item in the list
+		assertSame("Test that Chromebook is added to the end of the list.", cb2, chromebookList.get(1));
+		
+		//Add an item that already exists in the list Assert Tag: CB0012
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		assertEquals("Test that the Chromebook arraylist size is unchange.", 2, chromebookList.size());
+		
+		//Add an item that has missing detail
+>>>>>>> branch 'master' of https://github.com/22042070-Samantha/ResourceCentre_Student.git
 		Chromebook cb_missing = new Chromebook("CB0014", "", "Win 10");
 		ResourceCentre.addChromebook(chromebookList, cb_missing);
 		assertEquals("Test that the Chromebook arraylist size is unchange.", 2, chromebookList.size());
@@ -131,6 +153,7 @@ public class ResourceCentreTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testRetrieveAllChromebook() {
 		//fail("Not yet implemented");
 		// write your code here
@@ -167,12 +190,48 @@ public class ResourceCentreTest {
 		testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0011", "My Google Chromebook 1st", "Yes", "", "Mac OS");
 		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0012", "SAMSUNG Chromebook 4+", "Yes", "", "Win 10");
 		// Test that the details are displayed correctly
+=======
+	public void testRetrieveAllChromebook() {         
+		//fail("Not yet implemented");  
+		
+		//Test Case 1         
+		// Test if Item list is not null and empty         
+		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);         
+		assertEquals("Test that the Chromebook arraylist is empty.", 0, chromebookList.size());         
+		// Attempt to retrieve the Chromebook          
+		String allChromebook= ResourceCentre.retrieveAllChromebook(chromebookList);         
+		String testOutput = "";         
+		// Test if the output is empty         
+		assertEquals("Test that nothing is displayed", testOutput, allChromebook);
+		
+		//Test Case 2         
+		ResourceCentre.addChromebook(chromebookList, cb1);         
+		ResourceCentre.addChromebook(chromebookList, cb2);         
+		// Test that the list is not empty         
+		assertEquals("Test that Chromebook arraylist size is 2.", 2, chromebookList.size());         
+		// Attempt to retrieve the Chromebook          
+		allChromebook = ResourceCentre.retrieveAllChromebook(chromebookList);         
+		testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0011", "My Google Chromebook 1st", "Yes", "", "Mac OS");         
+		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0012", "SAMSUNG Chromebook 4+", "Yes", "", "Win 10");         
+		// Test that the details are displayed correctly         
+		assertEquals("Test that the display is correct.", testOutput, allChromebook);
+		
+        //Test Case 3         
+		cb3.setIsAvailable(false);         
+		ResourceCentre.addChromebook(chromebookList, cb3);         
+		assertEquals("Test that Chromebook arraylist size is 2.", 3, chromebookList.size());         
+		assertFalse("Test that the last item in the arraylist is not available", chromebookList.get(2).getIsAvailable());         
+		// Attempt to retrieve the Chromebook          
+		allChromebook = ResourceCentre.retrieveAllChromebook(chromebookList);         
+		testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0011", "My Google Chromebook 1st", "Yes", "", "Mac OS");         
+		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0012", "SAMSUNG Chromebook 4+", "Yes", "", "Win 10");         
+		// Test that the details are displayed correctly         
+>>>>>>> branch 'master' of https://github.com/22042070-Samantha/ResourceCentre_Student.git
 		assertEquals("Test that the display is correct.", testOutput, allChromebook);
 	}
 
 	@Test
 	public void testDoLoanCamcorder() {
-
 		// Test Case 1 - Loan an available Item
 		assertNotNull("test if there is valid Camcorder arraylist to loan from", camcorderList);
 		ResourceCentre.addCamcorder(camcorderList, cc1);
@@ -202,8 +261,11 @@ public class ResourceCentreTest {
 	@Test
 	public void testDoLoanChromebook() {
 		//fail("Not yet implemented");
+<<<<<<< HEAD
 		// write your code here
 
+=======
+>>>>>>> branch 'master' of https://github.com/22042070-Samantha/ResourceCentre_Student.git
 		// Test Case 1 - Loan an available Item
 		assertNotNull("test if there is valid Chromebook arraylist to loan from", chromebookList);
 		ResourceCentre.addChromebook(chromebookList, cb1);
@@ -254,6 +316,7 @@ public class ResourceCentreTest {
 	@Test
 	public void testDoReturnChromebook() {
 		//fail("Not yet implemented");
+<<<<<<< HEAD
 		// write your code here
 		
 		// Test case 1: Return a loaned out item
@@ -269,6 +332,21 @@ public class ResourceCentreTest {
 		isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0011");
 		assertFalse("Test that the return fails.", isReturned);
 						
+=======
+		// Test case 1: Return a loaned out item
+		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
+		ResourceCentre.addChromebook(chromebookList, cb1);
+		Boolean ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "8-8-2020" );
+		assertTrue("Test if CC0011 is successfully loaned out.", ok);
+		Boolean isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0011");
+		assertTrue("Test if the return of CB0011 is successful.", isReturned);
+		assertTrue("Test that CB0011 is now available.",chromebookList.get(0).getIsAvailable());
+
+		// Test case 2: Return an item that is not loaned out
+		isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0011");
+		assertFalse("Test that the return fails.", isReturned);
+				
+>>>>>>> branch 'master' of https://github.com/22042070-Samantha/ResourceCentre_Student.git
 		// Test case 3: Return an item that does not exist 
 		isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0013");
 		assertFalse("Test the the return of CB0013 fails.", isReturned);	

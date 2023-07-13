@@ -147,6 +147,7 @@ public class ResourceCentre {
 		System.out.println(output);
 	}
 
+<<<<<<< HEAD
 	public static String retrieveAllChromebook(ArrayList<Chromebook> chromebookList) {
 		// write your code here
 		String output = "";
@@ -160,6 +161,23 @@ public class ResourceCentre {
 		}
 		return output;
 	}
+=======
+	
+	  public static String retrieveAllChromebook(ArrayList<Chromebook> chromebookList) {
+		    String output = "";
+		    // write your code here
+		    for (int i = 0; i < chromebookList.size(); i++) {
+		      if (chromebookList.get(i).getIsAvailable()) {
+		        output += String.format("%-10s %-30s %-10s %-10s %-20s\n", chromebookList.get(i).getAssetTag(),
+		            chromebookList.get(i).getDescription(), 
+		          ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
+		          chromebookList.get(i).getDueDate(),chromebookList.get(i).getOs());
+		      }
+		    }
+		    return output;
+		  }
+	
+>>>>>>> branch 'master' of https://github.com/22042070-Samantha/ResourceCentre_Student.git
 	public static void viewAllChromebook(ArrayList<Chromebook> chromebookList) {
 		// write your code here
 		ResourceCentre.setHeader("CHROMEBOOK LIST");
@@ -207,6 +225,7 @@ public class ResourceCentre {
 		Chromebook item;
 		for(int i = 0; i < chromebookList.size(); i++) {
 			item = chromebookList.get(i);
+<<<<<<< HEAD
 			if (item.getAssetTag().equalsIgnoreCase(cb.getAssetTag()) )
 				return;
 		}
@@ -214,6 +233,15 @@ public class ResourceCentre {
 			return;
 		}
 		
+=======
+			if(item.getAssetTag().equalsIgnoreCase(cb.getAssetTag())) {
+				return;
+			}
+		}
+		if((cb.getAssetTag().isEmpty() || (cb.getDescription().isEmpty()))) {
+			return;
+		}
+>>>>>>> branch 'master' of https://github.com/22042070-Samantha/ResourceCentre_Student.git
 		chromebookList.add(cb);
 	}
 	
@@ -250,7 +278,11 @@ public class ResourceCentre {
 	}
 	
 	public static boolean doLoanChromebook(ArrayList<Chromebook> chromebookList, String tag, String dueDate) {
+<<<<<<< HEAD
 		// write your code here
+=======
+		// write your code 
+>>>>>>> branch 'master' of https://github.com/22042070-Samantha/ResourceCentre_Student.git
 		boolean isLoaned = false;
 
 		if (tag.isEmpty() || dueDate.isEmpty())
@@ -268,6 +300,7 @@ public class ResourceCentre {
 		}
 		return isLoaned;
 	}
+	
 	public static void loanChromebook(ArrayList<Chromebook> chromebookList) {
 		// write your code here	
 		ResourceCentre.viewAllChromebook(chromebookList);
@@ -298,7 +331,6 @@ public class ResourceCentre {
 			}
 		}
 		return isReturned;
-		
 	}
 	public static void returnCamcorder(ArrayList<Camcorder> camcorderList) {
 		ResourceCentre.viewAllCamcorder(camcorderList);
@@ -314,7 +346,11 @@ public class ResourceCentre {
 
 	public static boolean doReturnChromebook(ArrayList<Chromebook> chromebookList,String tag){
 		boolean isReturned = false;
+<<<<<<< HEAD
 		// write your code here
+=======
+		//New Updated
+>>>>>>> branch 'master' of https://github.com/22042070-Samantha/ResourceCentre_Student.git
 		if (tag.isEmpty())
 			return false;
 		
